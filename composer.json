@@ -1,6 +1,6 @@
 {
-    "name": "shocklogic/gamification",
-    "description": "Gamificate the experience of Virtualogic events",
+    "name": "shocklogic/moderator",
+    "description": "Moderate the experience of Virtualogic events",
     "autoload": {
         "psr-4": {
             "Shocklogic\\Moderator\\": "core/"
