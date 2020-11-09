@@ -5,10 +5,12 @@ namespace Shocklogic\Moderator\Classes;
 class SLModerator
 {
     private $shortcodes;
+    private $gifts;
 
     public function __construct()
     {
         $this->shortcodes = [];
+        $this->gifts = [];
     }
 
     public function install() {
@@ -25,6 +27,7 @@ class SLModerator
         register_deactivation_hook(FILE_PATH, [$this, 'uninstall']);
 
         $this->registerElement('shortcodes');
+        $this->registerElement('gifts');
     }
 
     public function registerElement($property)
@@ -42,6 +45,7 @@ class SLModerator
 
     public function addElement($property, array $elements)
     {
+        
         if(! property_exists($this, $property)) {
             return false;
         }
