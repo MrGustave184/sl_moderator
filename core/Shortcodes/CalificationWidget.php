@@ -2,7 +2,7 @@
 
 namespace Shocklogic\Moderator\Shortcodes;
 
-class QuestionsWidget
+class CalificationWidget
 {
     public function create_shortcode($atts = [], $content = null, $tag = '')
     {
@@ -31,12 +31,14 @@ class QuestionsWidget
         }
 
         $output = <<<EOT
-            <div>
-                <div class="row d-flex justify-content-center">
-                    <input type="text" placeholder="Type your question here" class="m-2 p-3 ">
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <button type="button" class="px-4 bg-white">Send</button>
+            <div class="row align-self-center justify-content-center" style="border:$border" id="sl_moderator_questions">
+                <div class="col-12"><p class="text-center">$message</p></div>
+                <div class="col-12 text-center">
+                    <i class="fas fa-star text-warning" style="font-size: xx-large;"></i>
+                    <i class="fas fa-star text-warning" style="font-size: xx-large;"></i>
+                    <i class="fas fa-star text-warning" style="font-size: xx-large;"></i>
+                    <i class="fas fa-star text-warning" style="font-size: xx-large;"></i>
+                    <i class="fas fa-star text-warning" style="font-size: xx-large;"></i>
                 </div>
             </div>
 EOT;
@@ -51,6 +53,6 @@ EOT;
 
     public function register()
     {
-        add_shortcode('moderator_questions', [$this, 'create_shortcode']);
+        add_shortcode('moderator_calification', [$this, 'create_shortcode']);
     }
 }

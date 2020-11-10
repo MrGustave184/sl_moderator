@@ -13,13 +13,13 @@ define('MODERATOR_BASE_URL', plugin_dir_url(__FILE__));
 require MODERATOR_BASE_PATH . 'vendor/autoload.php';
 
 use Shocklogic\Moderator\Classes\SLModerator;
-use Shocklogic\Moderator\Shortcodes\QuestionsWidget;
+use Shocklogic\Moderator\Shortcodes\FullModeratorWidget;
 use Shocklogic\Moderator\Gifts\ModeratorGifts;
 
 $moderator = new SLModerator();
 
 $moderator->addElement('shortcodes', [
-    new QuestionsWidget()
+    new FullModeratorWidget()
 ]);
 
 $moderator->addElement('gifts', [
