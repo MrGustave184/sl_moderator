@@ -33,7 +33,7 @@ class FullModeratorWidget
                     <input class="form-control text-center" type="text" placeholder="Type your question here" class="m-2 p-3">
                 </div>
                 <div class="col-12 d-flex justify-content-center my-2">
-                    <button type="button" class="px-4 bg-white">Send</button>
+                    <button id="moderator_send_question" type="button" class="px-4 bg-white">Send</button>
                 </div>
             </div>
             <div class="row bg-secondary p-5">
