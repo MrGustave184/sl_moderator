@@ -39,7 +39,7 @@ class SLModerator
 
         $charset_collate = $this->wpdb->get_charset_collate();
 
-        // Create questions table
+        // Create favorites table
         $table_name = Tables::get('favorites');	
         $sql = "CREATE TABLE $table_name (
             id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -50,6 +50,20 @@ class SLModerator
             session_title varchar(255),
             session_start_time varchar(100),
             session_end_time varchar(100),
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY  (id)
+        ) $charset_collate;";
+    
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+        dbDelta( $sql );
+
+        // Create califications table
+        $table_name = Tables::get('califications');	
+        $sql = "CREATE TABLE $table_name (
+            id mediumint(9) NOT NULL AUTO_INCREMENT,
+            userId int(11) NOT NULL,
+            session_id int (11),
+            number_points varchar(255),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY  (id)
         ) $charset_collate;";

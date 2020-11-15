@@ -18,6 +18,7 @@ use Shocklogic\Moderator\Shortcodes\FullModeratorWidget;
 use Shocklogic\Moderator\Gifts\ModeratorGifts;
 use Shocklogic\Moderator\Api\QuestionsRoutes;
 use Shocklogic\Moderator\Api\FavoritesRoutes;
+use Shocklogic\Moderator\Api\CalificationRoutes;
 
 $moderator = new SLModerator();
 
@@ -31,7 +32,8 @@ $moderator->addElement('gifts', [
 
 $moderator->addElement('routes', [
     new QuestionsRoutes(),
-    new FavoritesRoutes
+    new FavoritesRoutes(),
+    new CalificationRoutes()
 ]);
 
 $moderator->register();

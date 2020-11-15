@@ -11,7 +11,8 @@ class Tables
 
         $tables = [
             'questions' => $prefix . 'slmoderator_questions',
-            'favorites' => $prefix . 'slmoderator_favorites'
+            'favorites' => $prefix . 'slmoderator_favorites',
+            'califications' => $prefix . 'slmoderator_califications'
         ];
 
         return $tables;
