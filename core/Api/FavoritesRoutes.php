@@ -18,6 +18,14 @@ class FavoritesRoutes
         return $this->wpdb->insert(Tables::get('favorites'), $favorite);
     }
 
+    public function deleteFavorite($request) 
+    {
+        $favoriteId = $request['id'];
+        $table_name = Tables::get('favorites');
+
+        return $this->wpdb->get_results("DELETE FROM $table_name WHERE id = $favoriteId");
+    }
+
     public function getUserFavorites($request) 
     {
         $userId = $request['id'];
@@ -30,6 +38,11 @@ class FavoritesRoutes
         register_rest_route('shocklogic/moderator', 'favorite', [
             'methods' => 'POST',
             'callback' => [$this, 'saveFavorite']
+        ]);
+
+        register_rest_route('shocklogic/moderator', 'favorite/(?P<id>[\d]+)', [
+            'methods' => 'DELETE',
+            'callback' => [$this, 'deleteFavorite']
         ]);
 
         register_rest_route('shocklogic/moderator', '/users/(?P<id>[\d]+)/favorites', [
