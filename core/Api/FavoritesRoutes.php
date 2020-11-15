@@ -3,7 +3,7 @@
 namespace Shocklogic\Moderator\Api;
 use Shocklogic\Moderator\Classes\Tables;
 
-class QuestionsRoutes
+class FavoritesRoutes
 { 
     private $wpdb;
 
@@ -12,13 +12,14 @@ class QuestionsRoutes
         $this->wpdb = $wpdb;
     }
 
-    public function saveQuestion($request) 
+    public function saveFavorite($request) 
     {
-        $question = $request->get_json_params();
-        return $this->wpdb->insert(Tables::get('questions'), $question);
+        $favorite = $request->get_json_params();
+        // return $favorite;
+        return $this->wpdb->insert(Tables::get('favorites'), $favorite);
     }
 
-    public function getAllQuestions() 
+    public function getAllFavorites() 
     {
         return json_encode([
             'response' => 'questions routes'
@@ -26,14 +27,14 @@ class QuestionsRoutes
     }
 
     public function register_routes() {
-        register_rest_route('shocklogic/moderator', 'questions', [
+        register_rest_route('shocklogic/moderator', 'favorite', [
             'methods' => 'POST',
-            'callback' => [$this, 'saveQuestion']
+            'callback' => [$this, 'saveFavorite']
         ]);
 
-        register_rest_route('shocklogic/moderator', 'questions', [
+        register_rest_route('shocklogic/moderator', 'favorite', [
             'methods' => 'GET',
-            'callback' => [$this, 'getAllQuestions']
+            'callback' => [$this, 'getAllFavorites']
         ]);
     }
 

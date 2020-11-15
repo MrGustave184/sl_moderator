@@ -7,9 +7,11 @@ class Tables
     public static function getAll() : array 
     {
         global $wpdb;
+        $prefix = $wpdb->prefix;
 
         $tables = [
-            'questions' => $wpdb->prefix . 'slmoderator_questions'
+            'questions' => $prefix . 'slmoderator_questions',
+            'favorites' => $prefix . 'slmoderator_favorites'
         ];
 
         return $tables;

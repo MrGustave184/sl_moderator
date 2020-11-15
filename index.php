@@ -17,6 +17,7 @@ use Shocklogic\Moderator\Classes\SLModerator;
 use Shocklogic\Moderator\Shortcodes\FullModeratorWidget;
 use Shocklogic\Moderator\Gifts\ModeratorGifts;
 use Shocklogic\Moderator\Api\QuestionsRoutes;
+use Shocklogic\Moderator\Api\FavoritesRoutes;
 
 $moderator = new SLModerator();
 
@@ -29,7 +30,8 @@ $moderator->addElement('gifts', [
 ]);
 
 $moderator->addElement('routes', [
-    new QuestionsRoutes()
+    new QuestionsRoutes(),
+    new FavoritesRoutes
 ]);
 
 $moderator->register();
