@@ -15,15 +15,15 @@ class FavoritesRoutes
     public function saveFavorite($request) 
     {
         $favorite = $request->get_json_params();
-        // return $favorite;
         return $this->wpdb->insert(Tables::get('favorites'), $favorite);
     }
 
-    public function getAllFavorites() 
+    public function getUserFavorites($request) 
     {
-        return json_encode([
-            'response' => 'questions routes'
-        ]);
+        $userId = $request['id'];
+        $table_name = Tables::get('favorites');
+
+        return $this->wpdb->get_results("SELECT * FROM $table_name WHERE userId = $userId");
     }
 
     public function register_routes() {
@@ -32,9 +32,9 @@ class FavoritesRoutes
             'callback' => [$this, 'saveFavorite']
         ]);
 
-        register_rest_route('shocklogic/moderator', 'favorite', [
+        register_rest_route('shocklogic/moderator', '/users/(?P<id>[\d]+)/favorites', [
             'methods' => 'GET',
-            'callback' => [$this, 'getAllFavorites']
+            'callback' => [$this, 'getUserFavorites']
         ]);
     }
 

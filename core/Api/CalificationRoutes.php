@@ -32,7 +32,7 @@ class CalificationRoutes
             'callback' => [$this, 'saveCalification']
         ]);
 
-        register_rest_route('shocklogic/moderator', '/users/(?P<id>[\d]+)', [
+        register_rest_route('shocklogic/moderator', '/users/(?P<id>[\d]+)/califications', [
             'methods' => 'GET',
             'callback' => [$this, 'getUserCalifications']
         ]);
