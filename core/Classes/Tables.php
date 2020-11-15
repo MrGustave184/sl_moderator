@@ -4,7 +4,7 @@ namespace Shocklogic\Moderator\Classes;
 
 class Tables
 {
-    public static function getAll() : array 
+    public static function getAll()
     {
         global $wpdb;
         $prefix = $wpdb->prefix;
@@ -18,7 +18,7 @@ class Tables
         return $tables;
     }
 
-    public static function get(string $table) : string 
+    public static function get($table)
     {
         return self::getAll()[$table];
     }
