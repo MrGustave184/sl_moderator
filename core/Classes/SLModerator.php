@@ -30,7 +30,6 @@ class SLModerator
             id mediumint(9) NOT NULL AUTO_INCREMENT,
             userId int(11) NOT NULL,
             question TEXT NOT NULL,
-            question_category varchar(100),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY  (id)
         ) $charset_collate;";
@@ -41,10 +40,10 @@ class SLModerator
 
     public function uninstall() 
     {
-        foreach(Tables::getAll() as $table) {
-            $sql = "DROP TABLE IF EXISTS $table;";
-            $this->wpdb->query($sql);
-        }
+        // foreach(Tables::getAll() as $table) {
+        //     $sql = "DROP TABLE IF EXISTS $table;";
+        //     $this->wpdb->query($sql);
+        // }
     }
 
     public function register() 

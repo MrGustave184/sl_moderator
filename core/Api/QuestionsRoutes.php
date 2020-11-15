@@ -15,9 +15,7 @@ class QuestionsRoutes
     public function saveQuestion($request) 
     {
         $question = $request->get_json_params();
-
-        return 'questions routes';
-        // return $question;
+        return $question;
     }
 
     public function getAllQuestions() 

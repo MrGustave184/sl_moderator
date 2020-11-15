@@ -47,7 +47,7 @@ class FullModeratorWidget
                 </div>
             </div>
             <div class="row bg-dark d-flex justify-content-center align-items-center p-5">
-                <button class="btn btn-block btn-warning"> REQUEST A MEETING / DEMO</button>
+                <button class="btn btn-block btn-warning">REQUEST A MEETING / DEMO</button>
             </div>
         </div>    
 EOT;
