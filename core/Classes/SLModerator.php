@@ -62,8 +62,8 @@ class SLModerator
         $sql = "CREATE TABLE $table_name (
             id mediumint(9) NOT NULL AUTO_INCREMENT,
             userId int(11) NOT NULL,
-            session_id int (11),
-            number_points varchar(255),
+            session_id varchar (255),
+            number_points int (11),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY  (id)
         ) $charset_collate;";
