@@ -23,7 +23,9 @@ class FavoritesRoutes
         $favoriteId = $request['id'];
         $table_name = Tables::get('favorites');
 
-        return $this->wpdb->get_results("DELETE FROM $table_name WHERE id = $favoriteId");
+        return $this->wpdb->delete(Tables::get('favorites'), [
+            'id' => $request['id']
+        ]);
     }
 
     public function getUserFavorites($request) 
